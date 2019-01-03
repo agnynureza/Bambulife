@@ -1,18 +1,18 @@
-const Acc = require('../models/accModel')
+const Account = require('../models/accModel')
 const bcrypt = require('bcrypt-nodejs')
 const jwt = require('jsonwebtoken')
-const saltRound = 10
+const salt = bcrypt.genSaltSync(10);
 
 module.exports = {
     signUp: (req,res) => {
-        let accPassword = bcrypt.hashSync(req.body.accPassword, saltRound)
-        Acc.create({
+        let accPassword = bcrypt.hashSync(req.body.password, salt)
+        Account.create({
             username: req.body.username,
             password: accPassword
         },(err, data)=> {
             if(err){
                 res.status(500).json({
-                    message: `fail to create new account ! ${err.message}`,
+                    message: `fail to create new accountount ! ${err.message}`,
                     data: {}
                 })
             }else{
@@ -29,7 +29,7 @@ module.exports = {
         })
     },
     signIn: (req,res)=> {
-        Acc.findOne({username: req.body.username})
+        Account.findOne({username: req.body.username})
             .exec()
             .then(accData =>{
                 if(accData){

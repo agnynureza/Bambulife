@@ -6,4 +6,6 @@ const accSchema = new Schema({
     password: String
 })
 
-const Acc = moongose.model('Account', accSchema)
+const Account = moongose.model('Account', accSchema)
+
+module.exports = Account

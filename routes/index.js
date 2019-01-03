@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const account = require('./account')
 const data = require('./people')
+const auth = require('../middleware/auth')
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -9,6 +10,6 @@ router.get('/', function(req, res) {
 });
 
 router.use('/account', account)
-router.use('/people-like-you', data)
+router.use('/people-like-you', auth.check,data)
 
 module.exports = router;

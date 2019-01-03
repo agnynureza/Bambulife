@@ -6,7 +6,7 @@ router.get('/',function(req,res){
   res.send('Account checkpoint here')
 })
 
-router.get('/signin')
-router.post('/signup')
+router.post('/signin', accController.signIn)
+router.post('/signup', accController.signUp)
 
 module.exports = router;
