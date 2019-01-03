@@ -43,37 +43,42 @@ Access API via ```http://localhost:3000``` or ```http://bumilife-api.agnynureza.
 ### Basic usage:
 you can use postman or insomnia for API testing :
 
-GET ```/people-like-you```
+1. GET ```/people-like-you```
     
 Headers: 
+
 | Key  | Value  | 
-|-----|---------|
+| ----- | --------- |
 | token | ${data.token_from_sigin} | 
 
 Params:
+
 | Key | Value | info   |
-|----|------|-------|
+| ---- | ------ | ------- |
 | accid | ${data.id_from_signin} | mandatory | 
 | age| 20 | optional |
 | score| 0.8 | optional |
-| etc | |
+| etc |  | | |
 
-POST ```/people-like-you```
+2.POST ```/people-like-you```
 
-Headers: 
+Headers:  
+
 | Key  | Value  |
-|-----|-------|
+| ---- | ------ |
 | token | ${data.token from sigin} |
 | Content-type | application/x-www-form-urlencoded |
 
 Params:
+
 | Key    | Value | info  |
-|-------|------|------|
+| ------- | ------ | ------ |
 | accid | ${data.id_from signin} | mandatory |
 
 Body/payload: 
+
 | parameter  | type   |
-|-----------|-------|
+| ----------- | ------- |
 | name | String |
 | age |Integer |
 | longitude | String |
@@ -82,37 +87,42 @@ Body/payload:
 | experienced | Boolean |
 | score | Integer |
 
-PUT ```/people-like-you/:id```
+3.PUT ```/people-like-you/:id```
 where id = ${data._id from create people} 
 
-Headers: 
+Headers:
+
 | Key     | Value   |
-|--------|--------|
+| -------- | -------- |
 | token | ${data.token from sigin} |
 | Content-type | application/x-www-form-urlencoded | 
 
-Params
+Params:
+
 | Key    | Value  | info |
-|-------|-------|-----|
+| ------- | ------- | ----- |
 | accid | ${data.id_from signin} | mandatory |
 
 body/payload:
+
 | parameter  | type   |
-|-----------|-------|
+| ----------- | ------- |
 | name | String |
-| etc | |
+| etc |   | |
 
-DELETE ```/people-like-you/:id```
+4.DELETE ```/people-like-you/:id```
+where id = ${data._id from create people}
 
-where id = ${data._id from create people} 
-Headers: 
+Headers:
+
 | Key    | Value  | 
-|-------|-------|
+| ------- | ------- |
 | token | ${data.token from sigin} |
 
-Params
+Params:
+
 | Key   |Value   |info  |
-|------|--------|------|
+| ------ | -------- | ------ |
 | accid | ${data.id_from signin} | mandatory |
 
 ### Tech
