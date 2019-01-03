@@ -42,7 +42,7 @@ Access API via ```http://localhost:3000``` or ```http://bumilife-api.agnynureza.
 
 ### Basic usage:
 you can use postman or insomnia for API testing :
-1. GET ```/people-like-you```
+1.GET ```/people-like-you```
     Headers: 
     |Key|Value|
     |----|----|
@@ -54,7 +54,7 @@ you can use postman or insomnia for API testing :
     |age| 20 |optional|
     |score|0.8|optional|
     |etc
-2. POST ```/people-like-you```
+2.POST ```/people-like-you```
      Headers: 
     |Key|Value|
     |----|----|
@@ -75,7 +75,7 @@ you can use postman or insomnia for API testing :
     |experienced|Boolean|
     |score|Integer|
 
-3. PUT ```/people-like-you/:id```
+3.PUT ```/people-like-you/:id```
     where id = ${data._id from create people} 
     Headers: 
     |Key|Value|
@@ -91,7 +91,7 @@ you can use postman or insomnia for API testing :
     |---|---|
     |name|String|
     |etc
-4. DELETE ```/people-like-you/:id```
+4.DELETE ```/people-like-you/:id```
      where id = ${data._id from create people} 
     Headers: 
     |Key|Value|
