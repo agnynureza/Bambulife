@@ -42,30 +42,36 @@ Access API via ```http://localhost:3000``` or ```http://bumilife-api.agnynureza.
 
 ### Basic usage:
 you can use postman or insomnia for API testing :
-1.GET ```/people-like-you```
+GET ```/people-like-you```
+    
     Headers: 
     |Key|Value|
     |----|----|
     |token|${data.token_from_sigin} 
+
     Params:
-     |Key|Value|info|
+    |Key|Value|info|
     |----|----|---|
     |accid|${data.id_from_signin}|mandatory|
     |age| 20 |optional|
     |score|0.8|optional|
-    |etc
-2.POST ```/people-like-you```
-     Headers: 
+    |etc||
+
+POST ```/people-like-you```
+
+    Headers: 
     |Key|Value|
     |----|----|
     |token|${data.token from sigin}
     |Content-type|application/x-www-form-urlencoded|
-    Params
-     |Key|Value|info|
+    
+    Params:
+    |Key|Value|info|
     |----|----|---|
     |accid|${data.id_from signin}|mandatory|
+
     Body/payload: 
-     |parameter|type|
+    |parameter|type|
     |----|----|
     |name| String|
     |age|Integer|
@@ -75,28 +81,34 @@ you can use postman or insomnia for API testing :
     |experienced|Boolean|
     |score|Integer|
 
-3.PUT ```/people-like-you/:id```
+PUT ```/people-like-you/:id```
     where id = ${data._id from create people} 
+
     Headers: 
     |Key|Value|
     |----|----|
     |token|${data.token from sigin}
     |Content-type|application/x-www-form-urlencoded|
+
     Params
      |Key|Value|info|
     |----|----|---|
     |accid|${data.id_from signin}|mandatory|
+
     body/payload:
     |parameter|type|
     |---|---|
     |name|String|
-    |etc
-4.DELETE ```/people-like-you/:id```
-     where id = ${data._id from create people} 
+    |etc||
+
+DELETE ```/people-like-you/:id```
+
+    where id = ${data._id from create people} 
     Headers: 
     |Key|Value|
     |----|----|
-    |token|${data.token from sigin}
+    |token|${data.token from sigin}|
+
     Params
      |Key|Value|info|
     |----|----|---|
