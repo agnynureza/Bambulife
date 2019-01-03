@@ -47,7 +47,7 @@ GET ```/people-like-you```
     Headers: 
     |Key|Value|
     |----|----|
-    |token|${data.token_from_sigin} 
+    |token|${data.token_from_sigin}| 
 
     Params:
     |Key|Value|info|
