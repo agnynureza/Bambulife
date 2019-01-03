@@ -42,77 +42,78 @@ Access API via ```http://localhost:3000``` or ```http://bumilife-api.agnynureza.
 
 ### Basic usage:
 you can use postman or insomnia for API testing :
+
 GET ```/people-like-you```
     
-    Headers: 
-    |Key|Value|
-    |----|----|
-    |token|${data.token_from_sigin}| 
+Headers: 
+|Key  |Value    | 
+|-----|---------|
+|token|${data.token_from_sigin}| 
 
-    Params:
-    |Key|Value|info|
-    |----|----|---|
-    |accid|${data.id_from_signin}|mandatory|
-    |age| 20 |optional|
-    |score|0.8|optional|
-    |etc||
+Params:
+|Key |Value |info   |
+|----|------|-------|
+|accid|${data.id_from_signin}|mandatory|
+|age| 20 |optional|
+|score|0.8|optional|
+|etc||
 
 POST ```/people-like-you```
 
-    Headers: 
-    |Key|Value|
-    |----|----|
-    |token|${data.token from sigin}
-    |Content-type|application/x-www-form-urlencoded|
-    
-    Params:
-    |Key|Value|info|
-    |----|----|---|
-    |accid|${data.id_from signin}|mandatory|
+Headers: 
+|Key  |Value  |
+|-----|-------|
+|token|${data.token from sigin}
+|Content-type|application/x-www-form-urlencoded|
 
-    Body/payload: 
-    |parameter|type|
-    |----|----|
-    |name| String|
-    |age|Integer|
-    |longitude|String|
-    |latitude|String|
-    |monthlyIncome|Integer|
-    |experienced|Boolean|
-    |score|Integer|
+Params:
+|Key    |Value |info  |
+|-------|------|------|
+|accid|${data.id_from signin}|mandatory|
+
+Body/payload: 
+|parameter  |type   |
+|-----------|-------|
+|name| String|
+|age|Integer|
+|longitude|String|
+|latitude|String|
+|monthlyIncome|Integer|
+|experienced|Boolean|
+|score|Integer|
 
 PUT ```/people-like-you/:id```
-    where id = ${data._id from create people} 
+where id = ${data._id from create people} 
 
-    Headers: 
-    |Key|Value|
-    |----|----|
-    |token|${data.token from sigin}
-    |Content-type|application/x-www-form-urlencoded|
+Headers: 
+|Key     |Value   |
+|--------|--------|
+|token|${data.token from sigin}
+|Content-type|application/x-www-form-urlencoded|
 
-    Params
-     |Key|Value|info|
-    |----|----|---|
-    |accid|${data.id_from signin}|mandatory|
+Params
+|Key    |Value  |info |
+|-------|-------|-----|
+|accid|${data.id_from signin}|mandatory|
 
-    body/payload:
-    |parameter|type|
-    |---|---|
-    |name|String|
-    |etc||
+body/payload:
+|parameter  |type   |
+|-----------|-------|
+|name|String|
+|etc||
 
 DELETE ```/people-like-you/:id```
 
-    where id = ${data._id from create people} 
-    Headers: 
-    |Key|Value|
-    |----|----|
-    |token|${data.token from sigin}|
+where id = ${data._id from create people} 
+Headers: 
+|Key    |Value  | 
+|-------|-------|
+|token|${data.token from sigin}|
 
-    Params
-     |Key|Value|info|
-    |----|----|---|
-    |accid|${data.id_from signin}|mandatory|
+Params
+|Key   |Value   |info  |
+|------|--------|------|
+|accid|${data.id_from signin}|mandatory|
 
 ### Tech
 * [node.js] - evented I/O for the backend
