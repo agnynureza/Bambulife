@@ -37,6 +37,7 @@ module.exports = {
                     if(passwordCheck){
                         let token = jwt.sign({accid:accData._id}, process.env.SECRET)
                         res.status(200).json({
+                            message:'Sign in Success',
                             data:{
                                 id: accData._id,
                                 username: accData.username,

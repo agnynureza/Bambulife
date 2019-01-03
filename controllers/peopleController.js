@@ -9,7 +9,7 @@ module.exports = {
             latitude: req.body.latitude,
             monthlyIncome : req.body.monthlyIncome,
             score: req.body.score,
-            accid: req.body.accid,
+            accid: req.query.accid
         },(err,data)=> {
             if(err){
                 res.status(500).json({
@@ -24,19 +24,21 @@ module.exports = {
         })
     },
     readByAccId:(req,res)=> {
-        console.log(req.query)
-        console.log(req.query.latitude)
-        People.find({
-            $or: [
-                {age:req.query.age},
-                {latitude: req.query.latitude},
-                {longitude:req.query.longitude},
-                {monthlyIncome: req.query.monthlyIncome},
-                {experienced: req.query.experienced},
-                {score: req.query.score}
-            ]
-        })
+        let query = []
+        let option = {}
+        for(let item in req.query){
+            if(item != 'accid'){
+                query.push({[item] :req.query[item]})
+            }else if (item == 'age' || item == 'monthlyIncome' || item == 'score'){
+                query.push({[item] :Number(req.query[item])})
+            }
+        }
+        
+        if(query.length) option['$or'] = query 
+        
+        People.find(option)
         .sort({score:-1})
+        .limit(10)
         .exec()
         .then(dataPeople =>{
             let result = dataPeople.filter(people => people.accid == req.query.accid)
@@ -91,7 +93,7 @@ module.exports = {
         }
     },
     delete:(req,res)=> {
-        People.findByIdAndDelete(res.params.id,(err,deletePeople)=>{
+        People.findByIdAndDelete(req.params.id,(err,deletePeople)=>{
             if(err){
                 res.status(500).json({
                     message: `failed to delete data people ${err}`,
