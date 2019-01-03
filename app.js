@@ -1,20 +1,25 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const logger = require('morgan');
+const cors = require('cors')
+const bodyparser = require('body-parser')
+const mongoose = require('mongoose')
+const indexRouter = require('./routes/index');
+const app = express();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+require('dotenv').config()
 
-var app = express();
+mongoose.connect('mongodb://agnynureza:a12345@ds157089.mlab.com:57089/bambulife',{useNewUrlParser:true})
+                .then(
+                    () => {console.log('Database up !')},
+                    err => {console.log(`Error : ${err}`)}
+                )
 
 app.use(logger('dev'));
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({extended:false}))
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors())
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 module.exports = app;
