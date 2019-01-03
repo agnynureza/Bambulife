@@ -39,7 +39,7 @@ for testing :
 $npm test
 ```
 
-Access API via ```http://localhost:3000``` or ```http://bumilife-api.agnynureza.online```
+Access API via ```http://localhost:3000``` or ```http://bambulife-api.agnynureza.online```
 
 ### Basic usage:
 you can use postman or insomnia for API testing :
