@@ -133,6 +133,7 @@ Params:
 * [Mocha] - test run
 * [Mongoose] - Object Data Modeling (ODM) library for MongoDB and Node.js
 * [JsonWebToken] - Authorization and Authentication 
+* [Google Cloud Platfrom] - deployment
 
 [node.js]: <http://nodejs.org>
 [Mocha]: <https://mochajs.org/>
@@ -140,3 +141,4 @@ Params:
 [Mongoose]:<https://mongoosejs.com/>
 [JsonWebToken]: <https://jwt.io/>
 [Express]: <http://expressjs.com>
+

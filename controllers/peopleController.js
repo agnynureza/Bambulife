@@ -9,7 +9,8 @@ module.exports = {
             latitude: req.body.latitude,
             monthlyIncome : req.body.monthlyIncome,
             score: req.body.score,
-            accid: req.query.accid
+            accid: req.query.accid,
+            experienced: req.body.experienced 
         },(err,data)=> {
             if(err){
                 res.status(500).json({
@@ -72,6 +73,7 @@ module.exports = {
                 monthlyIncome : req.body.monthlyIncome || oldData.monthlyIncome,
                 score: req.body.score || oldData.score,
                 accid: oldData.accid,
+                experienced: req.body.experienced || oldData.experienced
             },{new:true}, (err, updatedData)=> {
                 if(err){
                     res.status(500).json({
