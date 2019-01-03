@@ -1,4 +1,4 @@
-# Bumi Life API
+# BambuLife API
 
 ## New Features!
   - generate jsonwebtoken for Authorization and Authentication
@@ -12,9 +12,10 @@
 | `/account/signin`| POST    | Sign in Account                 |
 | `/account/signup` | POST    | Create New Account              |
 
-kamu bisa membuat sendiri accountnya dan membuat list people yang kamu inginkan , disini saya sudah membuat account berisi list of people , jadi cukup tinggal login saya , untuk mengenerate token , kalau ingin membuat account baru silahkan, dan tinggal hit endpoint ```/people-like-you?age=20?experience=true``` (optional query parameter)
+you can create your own account and make list of people you want, but here i have created an account containing a list of people , so we just need to login to generate the token and test the core API ,just hit endpoint  ```/people-like-you?age=20?experience=true``` (optional query parameter)
+
 ```
-username: bumilife
+username: bambulife
 password: 12345
 ```
 
