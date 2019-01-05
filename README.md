@@ -1,9 +1,10 @@
 # BambuLife API
 
 ## New Features!
-  - generate jsonwebtoken for Authorization and Authentication
-  - signin and signup user so 1 account have privately list of people 
-  - simple CRUD people, dynamically manage your people 
+  - Generate jsonwebtoken for Authorization and Authentication
+  - Signin and signup user so 1 account have privately list of people 
+  - Simple CRUD people, dynamically manage your people 
+  - Caching with Redis (i put expire key for 1 minutes, if you need update, delete or add new people data)
  
 ### REST API 
 #### List of Account routes :
