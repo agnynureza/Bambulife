@@ -54,12 +54,17 @@ Headers:
 
 Params:
 
+```Bambulife accid=5c2def59b72e1f1568182341```
+
 | Key | Value | info   |
 | ---- | ------ | ------- |
 | accid | ${data.id_from_signin} | mandatory | 
 | age| 20 | optional |
 | score| 0.8 | optional |
-| etc |  | | |
+| longitude | 43.23 | optional |
+| latitude | 34.432 | optional |
+| monthlyIncome| 4352 | optional |
+| experienced | true | optional |
 
 2.POST ```/people-like-you```
 
@@ -71,6 +76,8 @@ Headers:
 | Content-type | application/x-www-form-urlencoded |
 
 Params:
+
+```Bambulife accid=5c2def59b72e1f1568182341```
 
 | Key    | Value | info  |
 | ------- | ------ | ------ |

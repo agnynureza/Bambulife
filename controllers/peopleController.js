@@ -27,11 +27,10 @@ module.exports = {
     readByAccId:(req,res)=> {
         let query = []
         let option = {}
+        
         for(let item in req.query){
             if(item != 'accid'){
                 query.push({[item] :req.query[item]})
-            }else if (item == 'age' || item == 'monthlyIncome' || item == 'score'){
-                query.push({[item] :Number(req.query[item])})
             }
         }
         

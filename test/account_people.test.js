@@ -6,8 +6,8 @@ chai.use(chaiHttp)
 chai.use(chaiSorted)
 
 const expect = chai.expect
-const accountURL = `http://localhost:3000/account`
-const peopleURL = `http://localhost:3000/people-like-you`
+const accountURL = `http://bambulife-api.agnynureza.online/account`
+const peopleURL = `http://bambulife-api.agnynureza.online/people-like-you`
 let token = ''
 let AccountId = ''
 let PeopleId = ''
