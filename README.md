@@ -152,5 +152,5 @@ Params:
 [JsonWebToken]: <https://jwt.io/>
 [Express]: <http://expressjs.com>
 [Redis]: <https://redis.io/>
-[Google Cloud PLatform]: <https://cloud.google.com/>
+[Google Cloud Platform]: <https://cloud.google.com/>
 
