@@ -142,7 +142,7 @@ Params:
 * [Mongoose] - Object Data Modeling (ODM) library for MongoDB and Node.js
 * [JsonWebToken] - Authorization and Authentication 
 * [Redis] - Session Cache
-* [Google Cloud Platfrom] - deployment
+* [Google Cloud Platform] - deployment
 
 
 [node.js]: <http://nodejs.org>
