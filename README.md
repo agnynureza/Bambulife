@@ -5,6 +5,18 @@
   - Signin and signup user so 1 account have privately list of people 
   - Simple CRUD people, dynamically manage your people 
   - Caching with Redis (i put expire key for 1 minutes, if you need update, delete or add new people data)
+
+### Installation
+With npm:
+
+```
+$npm install
+$npm start
+```
+for testing :
+```
+$npm test
+```
  
 ### REST API 
 #### List of Account routes :
@@ -27,18 +39,6 @@ password: 12345
 | `/people-like-you`     | POST   | Create New People Data |
 | `/people-like-you/:id` | PUT    | Update People data|
 | `/people-like-you/:id`  | DELETE | Delete People data|
-
-### Installation
-With only npm:
-
-```
-$npm install
-$npm start
-```
-for testing :
-```
-$npm test
-```
 
 Access API via ```http://localhost:3000``` or ```http://bambulife-api.agnynureza.online```
 
@@ -141,7 +141,9 @@ Params:
 * [Mocha] - test run
 * [Mongoose] - Object Data Modeling (ODM) library for MongoDB and Node.js
 * [JsonWebToken] - Authorization and Authentication 
+* [Redis] - Session Cache
 * [Google Cloud Platfrom] - deployment
+
 
 [node.js]: <http://nodejs.org>
 [Mocha]: <https://mochajs.org/>
@@ -149,4 +151,6 @@ Params:
 [Mongoose]:<https://mongoosejs.com/>
 [JsonWebToken]: <https://jwt.io/>
 [Express]: <http://expressjs.com>
+[Redis]: <https://redis.io/>
+[Google Cloud PLatform]: <https://cloud.google.com/>
 
