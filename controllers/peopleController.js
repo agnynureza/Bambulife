@@ -1,3 +1,5 @@
+const redis = require('redis')
+const client = redis.createClient();
 const People = require('../models/peopleModel')
 
 module.exports = {
@@ -42,6 +44,10 @@ module.exports = {
         .exec()
         .then(dataPeople =>{
             let result = dataPeople.filter(people => people.accid == req.query.accid)
+            let key = `bambu:${JSON.stringify(req.query)}`
+            client.set(key, JSON.stringify(result))
+            client.expire(key, 60)
+
             if(result.length){
                 res.status(200).json({
                     message: `find data people success`,
