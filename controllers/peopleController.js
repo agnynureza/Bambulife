@@ -11,7 +11,7 @@ module.exports = {
             latitude: req.body.latitude,
             monthlyIncome : req.body.monthlyIncome,
             score: req.body.score,
-            accid: req.query.accid,
+            accid: req.headers.accid,
             experienced: req.body.experienced 
         },(err,data)=> {
             if(err){
@@ -31,19 +31,18 @@ module.exports = {
         let option = {}
         
         for(let item in req.query){
-            if(item != 'accid'){
-                query.push({[item] :req.query[item]})
-            }
+            query.push({[item] :req.query[item]})
         }
         
         if(query.length) option['$or'] = query 
-        
+  
         People.find(option)
         .sort({score:-1})
         .limit(10)
         .exec()
         .then(dataPeople =>{
-            let result = dataPeople.filter(people => people.accid == req.query.accid)
+            let result = dataPeople.filter(people => people.accid == req.headers.accid)
+            
             let key = `bambu:${JSON.stringify(req.query)}`
             client.set(key, JSON.stringify(result))
             client.expire(key, 60)

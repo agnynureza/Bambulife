@@ -6,7 +6,7 @@ module.exports = {
         if(providedToken){
             try{
                 let checkToken = jwt.verify(providedToken, process.env.SECRET)
-                if(checkToken.accid == req.query.accid){
+                if(checkToken.accid == req.headers.accid){
                     next()
                 }else{
                     res.status(500).json({

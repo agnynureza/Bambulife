@@ -25,7 +25,7 @@ $npm test
 | `/account/signin`| POST    | Sign in Account                 |
 | `/account/signup` | POST    | Create New Account              |
 
-you can create your own account and make list of people you want, but here i have created an account containing a list of people , so we just need to login to generate the token and test the core API ,just hit endpoint  ```/people-like-you?age=20?experience=true``` (optional query parameter)
+you can create your own account and make list of people you want, but here i have created an account containing a list of people , so we just need to login to generate the token and test the core API ,just hit endpoint  ```/people-like-you?age=20?experienced=true``` (optional query parameter)
 
 ```
 username: bambulife
@@ -49,17 +49,17 @@ you can use postman or insomnia for API testing :
     
 Headers: 
 
+```Bambulife accid=5c2def59b72e1f1568182341```
+
 | Key  | Value  | 
 | ----- | --------- |
-| token | ${data.token_from_sigin} | 
+| token | ${data.token_from_sigin} |
+| accid | ${data.id_from_signin}  | 
 
 Params:
 
-```Bambulife accid=5c2def59b72e1f1568182341```
-
 | Key | Value | info   |
 | ---- | ------ | ------- |
-| accid | ${data.id_from_signin} | mandatory | 
 | age| 20 | optional |
 | score| 0.8 | optional |
 | longitude | 43.23 | optional |
@@ -71,18 +71,13 @@ Params:
 
 Headers:  
 
-| Key  | Value  |
-| ---- | ------ |
-| token | ${data.token from sigin} |
-| Content-type | application/x-www-form-urlencoded |
-
-Params:
-
 ```Bambulife accid=5c2def59b72e1f1568182341```
 
-| Key    | Value | info  |
-| ------- | ------ | ------ |
-| accid | ${data.id_from signin} | mandatory |
+| Key  | Value  |
+| ---- | ------ |
+| token | ${data.token_from_sigin} |
+| accid | ${data.id_from_signin}
+| Content-type | application/x-www-form-urlencoded |
 
 Body/payload: 
 
@@ -97,42 +92,34 @@ Body/payload:
 | score | Integer |
 
 3.PUT ```/people-like-you/:id```
-where id = ${data._id from create people} 
+where id = ${data._id_from_create people} 
 
 Headers:
 
 | Key     | Value   |
 | -------- | -------- |
-| token | ${data.token from sigin} |
+| token | ${data.token_from_sigin} |
+| accid | ${data.id_from_signin} |
 | Content-type | application/x-www-form-urlencoded | 
-
-Params:
-
-| Key    | Value  | info |
-| ------- | ------- | ----- |
-| accid | ${data.id_from signin} | mandatory |
 
 body/payload:
 
 | parameter  | type   |
 | ----------- | ------- |
 | name | String |
+| age | Integer |
 | etc |   | |
 
 4.DELETE ```/people-like-you/:id```
-where id = ${data._id from create people}
+where id = ${data._id_from_create people}
 
 Headers:
 
 | Key    | Value  | 
 | ------- | ------- |
 | token | ${data.token from sigin} |
+| accid | ${data.id_from signin} |
 
-Params:
-
-| Key   |Value   |info  |
-| ------ | -------- | ------ |
-| accid | ${data.id_from signin} | mandatory |
 
 ### Tech
 * [node.js] - evented I/O for the backend

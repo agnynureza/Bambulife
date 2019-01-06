@@ -56,7 +56,7 @@ describe('Create new people', () => {
     it('should be create an people',(done)=> {
         chai.request(peopleURL)
         .post('/')
-        .query({accid : AccountId})
+        .set('accid', AccountId)
         .set('token', token)
         .send({
             name : 'firza',
@@ -86,8 +86,8 @@ describe('Read all data people', ()=> {
     it('should show all people who like me',(done)=>{
         chai.request(peopleURL)
         .get('/')
-        .query({accid : AccountId})
-        .set('token',token)
+        .set('token', token)
+        .set('accid', AccountId)
         .end((err,res)=>{
             if(!err){
                 expect(res).to.have.status(200)
@@ -105,7 +105,7 @@ describe('Update data people',()=>{
     it('should update data people',(done)=>{
         chai.request(peopleURL)
         .put(`/${PeopleId}`)
-        .query({accid:AccountId})
+        .set('accid', AccountId)
         .set('token', token)
         .send({
             name: `milea`,
@@ -128,7 +128,7 @@ describe('Delete data people',()=>{
     it('should be delete data people',(done)=>{
         chai.request(peopleURL)
         .delete(`/${PeopleId}`)
-        .query({accid: AccountId })
+        .set('accid', AccountId)
         .set('token', token)
         .end((err,res)=>{
             if(!err){
