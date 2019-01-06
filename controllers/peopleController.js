@@ -69,6 +69,13 @@ module.exports = {
     update:async (req,res)=> {
         try{
             let oldData = await People.findById(req.params.id)
+            if(oldData.accid != req.headers.accid){
+                res.status(202).json({
+                    message: `can't update data people with different Account id`,
+                    data: {}
+                })
+                return
+            }
             People.findByIdAndUpdate(req.params.id,{
                 name : req.body.name || oldData.name,
                 age: req.body.age || oldData.age,
@@ -98,19 +105,29 @@ module.exports = {
             })
         }
     },
-    delete:(req,res)=> {
-        People.findByIdAndDelete(req.params.id,(err,deletePeople)=>{
-            if(err){
-                res.status(500).json({
-                    message: `failed to delete data people ${err}`,
+    delete:async(req,res)=> {
+        try{
+            let oldData = await People.findById(req.params.id)
+            if(oldData.accid != req.headers.accid){
+                res.status(202).json({
+                    message: `can't delete data people with different Account id`,
                     data: {}
                 })
-            }else{
-                res.status(200).json({
-                    message:'Delete data people success',
-                    data: deletePeople
-                })
+                return
             }
-        })
+            People.findByIdAndDelete(req.params.id,(err,deletePeople)=>{
+                if(!err){
+                    res.status(200).json({
+                        message:'Delete data people success',
+                        data: deletePeople
+                    })
+                }   
+            })
+        }catch(err){
+            res.status(500).json({
+                message: `failed to delete data people ${err}`,
+                data: {}
+            })
+        }
     }
 }
